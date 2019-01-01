@@ -30,7 +30,7 @@ stop_courtbot() {
   docker rm -f courtbot &>/dev/null || true
 }
 
-case $1 in
+case ${1:-"help"} in
      "import")
           docker exec courtbot $COURTBOT_BINARY import
           ;;
