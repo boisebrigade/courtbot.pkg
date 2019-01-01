@@ -1,0 +1,11 @@
+[Unit]
+Description=Courtbot
+Requires=docker.service
+
+[Service]
+
+ExecStop=/usr/bin/courtbot stop
+ExecStart=/usr/bin/courtbot start
+
+[Install]
+WantedBy=multi-user.target
