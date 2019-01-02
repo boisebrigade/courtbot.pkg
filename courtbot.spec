@@ -38,6 +38,7 @@ rm -rf %{buildroot}
 
 %post
 systemctl enable courtbot
+chcon -Rt svirt_sandbox_file_t /etc/courtbot/
 
 %changelog
 * Tue Jan 1 2019 Tyler Samples <tyler@boisebrigade.org>
