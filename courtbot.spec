@@ -8,7 +8,9 @@ Source0:    https://github.com/boisebrigade/courtbot.pkg/archive/master.tar.gz#/
 
 License:    ISC
 
-Requires:   (docker or docker-ce)
+%{?el7:Requires: docker}
+
+%{?fedora:Requires: (docker or docker-ce)}
 
 %description
 Courtbot is a simple web service for subscribing to case hearing details via SMS.
