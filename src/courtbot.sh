@@ -49,7 +49,7 @@ case ${1:-"help"} in
           stop_courtbot
 
           docker pull codeforboise/courtbot:latest
-          docker run --log-driver=journald --restart=always --name courtbot -p $COURTBOT_PORT:4000 -v "$COURTBOT_CONFIG":/opt/app/etc/courtbot -v "$COURTBOT_DATA":/tmp codeforboise/courtbot:latest
+          docker run --log-driver=journald --restart=always --name courtbot -p $COURTBOT_PORT:4000 -v "$COURTBOT_CONFIG":/opt/app/etc/ -v "$COURTBOT_DATA":/tmp codeforboise/courtbot:latest
           ;;
      "stop")
           stop_courtbot
