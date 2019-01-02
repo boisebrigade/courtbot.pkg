@@ -1,6 +1,6 @@
 Name:       courtbot
 Version:    0.2.0
-Release:    beta2
+Release:    beta3
 Summary:    Courtbot is a simple web service for subscribing to case hearing details via SMS.
 
 URL:        https://github.com/boisebrigade/courtbot
