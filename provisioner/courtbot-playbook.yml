@@ -1,0 +1,7 @@
+- name: Courtbot Packaging
+  hosts: all
+  vars_files:
+    - vars/courtbot.yml
+
+  roles:
+    - { role: courtbot, become: yes }

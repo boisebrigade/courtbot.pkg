@@ -1,0 +1,7 @@
+- name: Courtbot Packaging
+  hosts: all
+  vars_files:
+    - vars/psql.yml
+  roles:
+    - role: geerlingguy.postgresql
+      become: yes

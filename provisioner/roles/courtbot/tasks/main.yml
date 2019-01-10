@@ -1,0 +1,47 @@
+---
+- name: Install Copr Plugin
+  yum:
+    name: yum-plugin-copr
+    state: present
+
+- name: Enable openboise/courtbot
+  command: yum copr enable openboise/courtbot -y
+
+- name: Install Courtbot
+  yum:
+    name: courtbot
+    state: present
+
+- replace:
+    path: /etc/courtbot/courtbot.exs
+    regexp: 'POSTGRES_URL'
+    replace: "{{ postgres.url }}"
+
+- replace:
+    path: /etc/courtbot/courtbot.exs
+    regexp: 'TWILIO_SID'
+    replace: "{{ courtbot.twilio_sid }}"
+
+- replace:
+    path: /etc/courtbot/courtbot.exs
+    regexp: 'TWILIO_TOKEN'
+    replace: "{{ courtbot.auth_token }}"
+
+- replace:
+    path: /etc/courtbot/courtbot.exs
+    regexp: 'ROLLBAR_TOKEN'
+    replace: "{{ rollbar.access_token }}"
+
+- replace:
+    path: /etc/courtbot/courtbot.exs
+    regexp: 'COURTBOT_NUMBER'
+    replace: "{{ courtbot.phone_number }}"
+
+- name: Ensure the Courtbot service is running
+  systemd:
+    name: courtbot
+    state: started
+    enabled: yes
+
+- name: Sleep for 10 for migrations
+  wait_for: timeout=10

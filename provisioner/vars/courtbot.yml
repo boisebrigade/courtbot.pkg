@@ -1,0 +1,12 @@
+debug_number:
+  twilio_sid: SID
+  twilio_token: TOKEN
+  phone_number: +12025550178
+courtbot:
+  twilio_sid: SID
+  auth_token: TOKEN
+  phone_number: +12025550195
+rollbar:
+  access_token: ACCESS
+postgres:
+  url: postgres://postgres:postgres@192.168.50.50:5432/courtbot
