@@ -59,6 +59,10 @@ case ${1:-"help"} in
           journalctl CONTAINER_NAME=courtbot
           ;;
 
+     "remote_console")
+          sudo docker exec -it courtbot $COURTBOT_BINARY remote_console
+          ;;
+
      "help")
           print_help
           ;;
